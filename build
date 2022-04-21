@@ -1,0 +1,32 @@
+#!/bin/bash
+
+export PACKAGE=batman
+
+export STARTDIR=$PWD
+export BATMAN_BUILDTIME=$(date +%Y.%m.%d-%H:%M:%S)
+export BATMAN_GOVERSION=$(go version | cut -d " " -f 3)
+export BATMAN_BUILDHOST=$(hostname)
+export BASEDIR="$(dirname "${PWD}")"
+
+platforms=("linux/amd64")
+
+for platform in "${platforms[@]}"
+do
+    IFS='/' read -ra platform_split <<< "$platform"
+    GOOS=${platform_split[0]}
+    GOARCH=${platform_split[1]}
+    basename=$PACKAGE'-'$GOOS'-'$GOARCH
+    echo $basename
+    BINARY=$BASEDIR/$PACKAGE/cli/$basename
+    cd $BASEDIR/$PACKAGE/cli
+    env BATMAN_BUILDTIME=$BATMAN_BUILDTIME BATMAN_GOVERSION=$BATMAN_GOVERSION GOOS=$GOOS GOARCH=$GOARCH BATMAN_BUILDHOST=$BATMAN_BUILDHOST go build -o $BINARY -ldflags "-X main.buildTime=$BATMAN_BUILDTIME -X main.buildHost=$BATMAN_BUILDHOST -X main.goVersion=$BATMAN_GOVERSION" .
+    echo $BINARY
+done
+
+export BINDIR=$(qtechng registry get bindir)
+
+mv $BINARY $BINDIR/batman
+chmod a+x $BINDIR/batman
+batman about
+cd $STARTDIR
+go test ./...
