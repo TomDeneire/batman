@@ -8,15 +8,21 @@
 
 ## Usage
 
-Use the command `batman start min max` to start monitoring. (Make it part of the startup applications of your OS for convenience)
+Use the command `batman start min max` to start a monitoring daemon process. (You can make the command part of the startup applications of your OS for convenience)
 
-When your laptop battery is discharging and reaches `min`, `batman` will warn you to plug in the battery charger. When your laptop is charging and reaches `max`, `batman` will warn you to stop charging.
+When your laptop battery is discharging and reaches `min`, `batman` will show a popup to warn you to plug in the battery charger. When your laptop is charging and reaches `max`, `batman` will warn you to stop charging.
+
+![batman](batman.png)
+
+You can also check manually on the command-line with `batman check --raw`
+
+Use the command `batman stop` to stop the program.
+
+## Battery life
 
 In this way, `batman` helps you save battery [charging cycles](https://www.digitaltrends.com/computing/how-to-care-for-your-laptops-battery/), thus prolonging battery life.
 
 Sensible values for `min` and `max` are, for instance, `20` and `90`.
-
-Use the command `batman stop` to stop the program.
 
 ## Installation
 

@@ -9,6 +9,7 @@ export BATMAN_BUILDHOST=$(hostname)
 export BASEDIR="$(dirname "${PWD}")"
 
 platforms=("linux/amd64")
+# platforms=("linux/amd64" "windows/amd64" "darwin/amd64")
 
 for platform in "${platforms[@]}"
 do
