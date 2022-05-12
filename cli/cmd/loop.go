@@ -58,13 +58,13 @@ func loop(cmd *cobra.Command, args []string) error {
 		message := ""
 
 		if state == "Full" {
-			message = "Stop charging your laptop!"
+			message = "Stop charging your device!"
 		}
 		if state == "Charging" && percentage > max {
-			message = "Stop charging your laptop!"
+			message = "Stop charging your device!"
 		}
 		if state == "Discharging" && percentage < min {
-			message = "Start charging your laptop!"
+			message = "Start charging your device!"
 		}
 
 		if message == "" {
