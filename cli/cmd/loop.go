@@ -57,6 +57,9 @@ func loop(cmd *cobra.Command, args []string) error {
 
 		message := ""
 
+		if percentage == 100 {
+			message = "Stop charging your device!"
+		}
 		if state == "Full" {
 			message = "Stop charging your device!"
 		}
