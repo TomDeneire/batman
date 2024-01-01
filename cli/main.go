@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"./cmd"
+	"tomdeneire.be/batman/cli/cmd"
 )
 
 var buildTime string

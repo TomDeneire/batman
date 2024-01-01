@@ -3,7 +3,7 @@ package batmantest
 import (
 	"testing"
 
-	"../util"
+	util "tomdeneire.be/batman/lib/util"
 )
 
 func TestBatteryInfo(t *testing.T) {

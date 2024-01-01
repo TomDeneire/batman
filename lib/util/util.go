@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/distatus/battery"
-	"github.com/webview/webview"
+	"github.com/webview/webview_go"
 )
 
 // Display battery info and charging advice

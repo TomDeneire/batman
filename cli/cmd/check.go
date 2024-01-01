@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	util "../../lib/util"
+	util "tomdeneire.be/batman/lib/util"
 )
 
 var checkCmd = &cobra.Command{

@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	util "../../lib/util"
 	"github.com/spf13/cobra"
+	util "tomdeneire.be/batman/lib/util"
 )
 
 var loopCmd = &cobra.Command{
